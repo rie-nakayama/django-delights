@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %} 
+{% block title %}Django Delights{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'tourist_attractions/style.css' %}" />
+
+<h1>Add a new ingredient</h1>
+<form action="" method="POST">
+  {% csrf_token %} {{ form.as_p}}
+  <input type="submit" value="Submit" />
+</form>
+{% endblock %}

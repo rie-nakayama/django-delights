@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %} 
+{% block title %}Django Delights{% endblock %}
+{% block content %}
+<div>
+  <h2>Recipe Requirements</h2>
+  <table class="recipe-table">
+    <thead>
+      <tr>
+        <th>Menu Item</th>
+        <th>Ingredient</th>
+        <th>Quantity</th>
+        <th>Unit Price</th>
+        <th>Ingredient Cost</th>
+ 
+      </tr>
+    </thead>
+    <tbody>
+        {% for reciperequirement in object_list %}
+          <tr>
+            <td>{{ reciperequirement.menu_item.title }}</td>
+            <td>{{ reciperequirement.ingredient.name }}</td>
+            <td>{{ reciperequirement.quantity }}</td>
+            <td>{{ reciperequirement.ingredient.unitprice }}</td>
+            <td>{% widthratio reciperequirement.ingredient.unitprice 1 reciperequirement.quantity %}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+  </table>
+</div>
+{% endblock %}
+

@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="https://www.codecademy.com/favicon.ico"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'routes/style.css' %}"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>{% block title %}Django Delights{% endblock %}</title>
+    {% block head %}{% endblock %}
+    <style>
+        table, th, td {
+          border:1px solid black;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <header>
+        <div class="header-first-row">
+          <img
+            src="{% static 'routes/djitney.png' %}"
+            alt="Django Djitney Logo"
+            width="80px"
+          />
+          <h1 class="title">Django Delights</h1>
+        </div>
+        <nav class="navbar">
+          <a class="nav-item" href="{% url 'home' %}">Home</a>
+<a class="nav-item" href="{% url 'ingredients' %}">Ingredients Inventory</a> 
+<a class="nav-item" href="{% url 'menu_list' %}">Menu</a> 
+<a class="nav-item" href="{% url 'recipe_requirements' %}">Recipe Requirements</a>
+<a class="nav-item" href="{% url 'purchases_list' %}">Purchases</a> 
+<a class="nav-item" href="{% url 'profit_revenue' %}">Profit and Revenue</a>
+        </nav>
+      </header>
+      <main>{% block content %}{% endblock %}</main>
+    </div>
+  </body>
+</html>

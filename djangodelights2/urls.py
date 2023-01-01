@@ -16,6 +16,20 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from inventory import views
+# from . import views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.HomeView.as_view(), name='home'),
+    path('ingredient_list/', views.IngredientsView.as_view(), name='ingredients'),
+    path('ingredient_list/create', views.AddIngredientsView.as_view(), name='add_ingredient'), 
+    path('menu_list/', views.MenuListView.as_view(), name='menu_list'),  
+    path("menu_list/create", views.AddMenuView.as_view(), name="add_menu"),
+    path("purchases/", views.PurchaseView.as_view(), name="purchases_list"),
+    path("purchases/create", views.AddPurchaseView.as_view(), name="add_purchase"),
+    path("profit_revenue", views.ProfitView, name="profit_revenue"),
+    path("recipe_requirements", views.RecipeRequirementsListView.as_view(), name="recipe_requirements"),
+
+
 ]

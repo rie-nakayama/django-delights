@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %} 
+{% block title %}Django Delights{% endblock %}
+{% block content %}
+<div>
+  <h2>Purchases</h2>
+  <table class="purchase-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Menu Item</th>
+        <th>Price</th>
+        <th>Time Stamp</th>
+      </tr>
+    </thead>
+    {% for purchase in object_list %}
+    <tr>
+      <td>{{ purchase.id }}</td>
+      <td>{{ purchase.menu_item.title}}</td>
+      <td>{{ purchase.menu_item.price}}</td>
+      <td>{{ purchase.timestamp }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+  </table>
+  <a href="{% url 'add_purchase' %}" style="display: inherit; text-align: center; border-radius: 15px; text-decoration: none; color: inherit; padding: 4px; background-color: lightgreen;">➕</a>
+
+</div>
+{% endblock %}
